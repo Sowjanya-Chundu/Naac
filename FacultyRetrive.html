@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <script>
+        function fetchStudentDetails() {
+            var rollNo = document.getElementById("rollNo").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById("resultDiv").innerHTML = xhr.responseText;
+                    } else {
+                        alert('Error: ' + xhr.status);
+                    }
+                }
+            };
+
+            xhr.open("POST", "StudentServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("rollNo=" + rollNo);
+        }
+    </script>
+</head>
+<body>
+
+    <label for="rollNo">Enter student roll number: </label>
+    <input type="text" id="rollNo">
+    <button type="button" onclick="fetchStudentDetails()">Submit</button>
+
+    <div id="resultDiv"></div>
+
+</body>
+</html>

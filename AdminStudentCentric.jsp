@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding-top: 60px; 
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0px 20px; 
+        }
+        header:hover {
+            background-color: #45a049;
+        }
+        section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            overflow: hidden;
+            position: relative;
+            width: 60%;
+            height: 400px;
+            z-index: 1; 
+            animation-name: slideInDown;
+            animation-duration: 0.6s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            transform: translateX(-150px);
+        }
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-330px);
+            }
+            to {
+                transform: translateY(10px);
+            }
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            transition: background 0.3s ease;
+        }
+        section:hover::before {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        section h2, section p, section ul {
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            color: #fff;
+        }
+        p, li {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="file"] {
+            display: block;
+            margin-top: 10px;
+        }
+        .top-left {
+            position: fixed;
+            top: 10px; 
+            left: 10px;
+            z-index: 1001; 
+        }
+        .icon-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .icon-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .experiential {
+            background-image: url('s1.jpeg');
+        }
+        .participative {
+            background-image: url('s2.jpeg');
+        }
+        .problem-solving {
+            background-image: url('s3.jpeg');
+        }
+        .upload-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left">
+        <button class="icon-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="icon-button" onclick="goHome()">
+            <i class="fas fa-home"></i>
+        </button>
+    </div>
+    <header>
+        <h1>Student-Centric Learning Methods</h1>
+    </header>
+    <section class="experiential">
+        <h2>Experiential Learning</h2>
+        <p>Experiential learning is a process through which students develop knowledge, skills, and values from direct experiences outside a traditional academic setting. This hands-on approach allows students to apply theoretical concepts in real-world scenarios, thus deepening their understanding and retention of knowledge.</p>
+        <p>Examples of experiential learning include:</p>
+        <ul>
+            <li>Internships</li>
+            <li>Field trips</li>
+            <li>Laboratory experiments</li>
+            <li>Simulations</li>
+        </ul>
+    </section>
+    <section class="participative">
+        <h2>Participative Learning</h2>
+        <p>Participative learning, also known as collaborative or cooperative learning, emphasizes the importance of interaction and collaboration among students. This method involves group activities, discussions, and projects where students work together to achieve common goals.</p>
+        <p>Examples of participative learning include:</p>
+        <ul>
+            <li>Group discussions</li>
+            <li>Peer teaching sessions</li>
+            <li>Collaborative projects</li>
+        </ul>
+    </section>
+    <section class="problem-solving">
+        <h2>Problem-Solving Methodologies</h2>
+        <p>Problem-solving methodologies focus on developing students' abilities to tackle complex and real-life problems through critical thinking and analytical skills. This approach involves presenting students with challenging problems and guiding them through the process of finding solutions.</p>
+        <p>Examples of problem-solving methodologies include:</p>
+        <ul>
+            <li>Problem-based learning (PBL)</li>
+            <li>Case studies</li>
+        </ul>
+    </section>
+    <div class="upload-section">
+        <form action="UploadFileServlet" method="post" enctype="multipart/form-data">
+            <label for="file">Upload File:</label>
+            <input type="file" id="file" name="file">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function goHome() {
+            window.location.href = 'home.html'; // Change 'home.jsp' to your home page URL
+        }
+    </script>
+</body>
+</html>
