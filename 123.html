@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+
+</head>
+<body>
+    
+<script src="assets/js/main.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+<script src="https://kit.fontawesome.com/5d59e8f58e.js" crossorigin="anonymous"></script>
+
+<div class="header">
+    <h1>Teaching, Learning, and Evaluation</h1>
+    <button class="login-btn" onclick="redirectToLogout()">Logout</button>
+</div>
+
+<div class="sidebar">
+    <img src="vvitlogo.jpg" alt="Sidebar Image" class="sidebar-image">
+    <div class="toggle-button" onclick="toggleSidebar()">☰</div>
+    <ul class="menu-items">
+        <li class="menu-item">
+            <a href="home.html"><i class="fas fa-home icon"></i><span class="text">Home</span></a>
+            
+        </li>
+        <li class="menu-item">
+            <a href="#"><i class="fas fa-user-graduate icon"></i><span class="text">Student Profile</span></a>
+            <ul class="submenu">
+                <li><a href="studentAdmission.jsp">Student Enrollment && Reservation </a></li>
+               
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#"><i class="fas fa-users icon"></i><span class="text">Student Diversity</span></a>
+            <ul class="submenu">
+                <li><a href="AdvSlowLearners.jsp">Learning Levels</a></li>
+                <li><a href="AdminStudentTeacherRatio.jsp">Student Full Time Teacher Ratio</a></li>
+               
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#"><i class="fas fa-book-open icon"></i><span class="text">Learning</span></a>
+            <ul class="submenu">
+                 <li><a href="AdminStudentCentric.jsp">Centric Methods</a></li>
+                <li><a href="icttools.jsp">Icttools</a></li>
+                <li><a href="AdminMentorMentee.jsp">Mentor Mentee</a></li>
+                <li><a href="CalendarAdmin.html">Academic Calendar</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="AdminFaculty.jsp"><i class="fas fa-chalkboard-teacher icon"></i><span class="text">Teacher Profile</span></a>
+            <ul class="submenu">
+               
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#"><i class="fas fa-clipboard-list icon"></i><span class="text">Evaluation</span></a>
+            <ul class="submenu">
+                <li><a href="AdminSemesterResults.jsp">Semester Results</a></li>
+                <li><a href="AdminDisplayCompliants.jsp">Grivances</a></li>
+               
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#"><i class="fas fa-chart-line icon"></i><span class="text">Performance</span></a>
+            <ul class="submenu">
+                <li><a href="studentsatisfication.jsp">Satisfication Survey</a></li>
+                
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="slishow-container">
+        <div class="slides fade">
+            <img src="900px-VVIT_Ariel_View.jpg"  height="670px" width="100%" alt="Image 1">
+        </div>
+        <div class="slides fade">
+            <img src="vvitdrone.png"  height="670px" width="100%" alt="Image 2">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+    </div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(() => { plusSlides(1); }, 5000); 
+    }
+
+    function toggleSidebar() {
+        document.querySelector('.sidebar').classList.toggle('show');
+    }
+
+    function redirectToLogout() {
+        window.location.href = "home.html";  
+    }
+
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.querySelector('.submenu').style.display = 'block';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.querySelector('.submenu').style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>
