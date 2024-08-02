@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Page with Dropdowns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      background-color: lightblue;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .dropdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .dropdown-container label {
+      margin-right: 5px;
+    }
+
+    .dropdown-container select {
+      width: 200px;
+      padding: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h2>Select Options</h2>
+
+  <div class="dropdown-container">
+    <label for="deptno">Department:</label>
+    <select id="deptno">
+      <option value="">all</option>
+      <option value="1">CSE</option>
+      <option value="2">IT</option>
+      <option value="3">ECE</option>
+      <option value="4">CSM</option>
+      <option value="5">CSO</option>
+      <option value="6">CIC</option>
+      <option value="7">CIVIL</option>
+      <option value="8">MECH</option>
+      <option value="9">EEE</option>
+    </select>
+
+    <label for="academicYear">Academic Year:</label>
+    <select id="academicYear">
+      <option value="">all</option>
+      <option value="2018-2019">2018-2019</option>
+      <option value="2019-2020">2019-2020</option>
+      <option value="2020-2021">2020-2021</option>
+      <option value="2021-2022">2021-2022</option>
+      <option value="2022-2023">2022-2023</option>
+      <option value="2023-2024">2023-2024</option>
+    </select>
+
+    <label for="semester">Semester:</label>
+    <select id="semester">
+      <option value="">all</option>
+      <option value="1">Semester 1</option>
+      <option value="2">Semester 2</option>
+    </select>
+
+    <label for="year">Year:</label>
+    <select id="year">
+      <option value="">all</option>
+      <option value="1">Year 1</option>
+      <option value="2">Year 2</option>
+      <option value="3">Year 3</option>
+      <option value="4">Year 4</option>
+    </select>
+
+    <button onclick="downloadDocument()">Download</button>
+  </div>
+
+  <script>
+    function downloadDocument() {
+      const selectedYear = document.getElementById("academicYear").value;
+
+      // Redirect to the desired page based on the selected year
+      if (selectedYear == "2018-2019") {
+        window.location.href = "projects.jsp";
+      } else if (selectedYear == "2019-2020") {
+        window.location.href = "facultydata.jsp";
+      } else if (selectedYear == "2020-2021") {
+        window.location.href = "faculty20-21.jsp";
+      } else if (selectedYear == "2021-2022") {
+        window.location.href = "faculty21-22.jsp";
+      } else if (selectedYear == "2022-2023") {
+        window.location.href = "faculty22-23.jsp";
+      } else if (selectedYear == "2023-2024") {
+        window.location.href = "faculty23-24.jsp";
+      }
+    }
+  </script>
+</body>
+</html>

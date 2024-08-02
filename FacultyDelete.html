@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Data</title>
+</head>
+<body>
+
+    <h1>Delete Data</h1>
+
+    <form id="deleteForm">
+        <label for="idToDelete">Enter ID to Delete:</label>
+        <input type="text" id="idToDelete" name="idToDelete" required>
+        <button type="button" onclick="deleteData()">Delete</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function deleteData() {
+            var idToDelete = document.getElementById('idToDelete').value;
+
+            // Validate input (you might want to add more validation)
+            if (!idToDelete) {
+                alert('Please enter an ID to delete.');
+                return;
+            }
+
+            // Perform Fetch API request
+            fetch('DeleteDataServlet?id=' + idToDelete, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('result').innerHTML = data;
+                alert('Data deleted successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            });
+        }
+    </script>
+
+</body>
+</html>

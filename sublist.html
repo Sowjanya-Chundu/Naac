@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative; /* Ensure positioning context for top-left icons */
+    }
+
+    .container-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .container {
+      width: 300px;
+      height: 300px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .container h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .container a {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    .container a:hover {
+      background-color: #45a049;
+    }
+
+    .top-left {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1001; /* Ensures icons are above other content */
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-button {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-button i {
+      color: #333;
+      font-size: 20px;
+    }
+
+    .icon-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    @media (max-width: 768px) {
+      .container-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-left">
+    <button class="icon-button" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="icon-button" onclick="goHome()">
+      <i class="fas fa-home"></i>
+    </button>
+  </div>
+  <div class="container-wrapper">
+    <div class="container">
+      <img src="studentenrollment.jpg" alt="Student Enrollment">
+      <a href="studentAdmission.jsp">Student Enrollment</a>
+    </div>
+
+    <div class="container">
+      <img src="Reservationcategories.jpg" alt="Reservations">
+      <a href="ReservedCategories.jsp">Reservation</a>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+    function goHome() {
+      window.location.href = 'home.html'; // Change 'home.html' to your home page URL
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    
+}
+.rainbow-text {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-animation 5s infinite;
+}
+
+@keyframes rainbow-animation {
+    0%, 100% {background-position: 0%;}
+    50% {background-position: 100%;}
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ff8533;
+    text-align: center;
+}
+
+.peos, .pos, .psos {
+    margin-left: 20px;
+}
+
+.peo, .po, .pso {
+    margin-bottom: 15px;
+}
+
+.peo h3, .po h3, .pso h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: saddlebrown;
+    
+}
+
+.peo p, .po p, .pso p {
+    margin: 0;
+    text-align: justify;
+}
+
+p {
+    margin: 10px 0;
+}
+      
